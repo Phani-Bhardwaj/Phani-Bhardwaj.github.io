@@ -17,7 +17,6 @@
   <div class="nav-inner">
     <a href="#top" class="nav-logo">phani<span class="cursor-blink">_</span></a>
     <div class="nav-links">
-      <a href="#pipeline">pipeline</a>
       <a href="#personal-projects">projects</a>
       <a href="#professional-experience">work</a>
       <a href="#stack">stack</a>
@@ -47,133 +46,12 @@
       <span class="status-pill"><span class="status-dot"></span>Open to roles</span>
     </div>
   </div>
-
-  <div class="terminal-window" id="boot-terminal">
-    <div class="terminal-titlebar">
-      <div class="terminal-dots"><span></span><span></span><span></span></div>
-      <span class="terminal-title">devsecops-ai-agent — run.sh</span>
-    </div>
-    <div class="terminal-body" id="terminal-body">
-      <!-- lines injected by JS -->
-    </div>
-  </div>
 </header>
-
-<!-- ============ PIPELINE SECTION ============ -->
-<section class="section pipeline-section" id="pipeline">
-  <div class="section-head">
-    <p class="eyebrow">01 / SIGNATURE PROJECT</p>
-    <h2>A five-node pipeline, not a chatbot wrapper</h2>
-    <p class="section-desc">Most "AI agent" portfolio projects are RAG demos over a PDF. This one catches real security misconfigurations in Terraform &amp; Kubernetes before they reach production — combining deterministic static analysis with LLM reasoning, grounded by retrieval, with every fix traceable to a source.</p>
-  </div>
-
-  <div class="pipeline-flow">
-    <div class="pipeline-node" data-node="1">
-      <span class="node-step">STEP 1</span>
-      <div class="node-icon">📄</div>
-      <h3>parser_agent</h3>
-      <p>Extracts resources from Terraform &amp; K8s manifests into shared state</p>
-    </div>
-    <div class="pipeline-node" data-node="2">
-      <span class="node-step">STEP 2</span>
-      <div class="node-icon">🔍</div>
-      <h3>security_scanner_agent</h3>
-      <p>Checkov static rules + Groq LLM reasoning over setting combinations</p>
-    </div>
-    <div class="pipeline-node" data-node="3">
-      <span class="node-step">STEP 3</span>
-      <div class="node-icon">📚</div>
-      <h3>rag_knowledge_agent</h3>
-      <p>Retrieves CIS-Benchmark-style grounding context from ChromaDB</p>
-    </div>
-    <div class="pipeline-node" data-node="4">
-      <span class="node-step">STEP 4</span>
-      <div class="node-icon">🛠️</div>
-      <h3>remediation_agent</h3>
-      <p>Generates fixes with citations back to the knowledge base</p>
-    </div>
-    <div class="pipeline-node" data-node="5">
-      <span class="node-step">STEP 5</span>
-      <div class="node-icon">📋</div>
-      <h3>report_agent</h3>
-      <p>Compiles findings + evidence into one markdown report — no LLM call</p>
-    </div>
-  </div>
-
-  <div class="why-grid">
-    <div class="why-card">
-      <p class="why-tag">WHY CHECKOV + LLM, NOT LLM-ONLY</p>
-      <p>Checkov catches known misconfiguration patterns deterministically — zero hallucination risk. The LLM pass catches what static rules can't: setting <em>combinations</em> that add up to a privilege-escalation path even when no single rule fires.</p>
-    </div>
-    <div class="why-card">
-      <p class="why-tag">WHY RAG, NOT DIRECT LLM CALLS</p>
-      <p>Ask an LLM "why is this insecure?" with no retrieval and it answers from parametric memory — which drifts and can't be audited. Every remediation here cites a specific knowledge-base entry, so it's checkable, not just trusted.</p>
-    </div>
-  </div>
-
-  <div class="terminal-window scan-result">
-    <div class="terminal-titlebar">
-      <div class="terminal-dots"><span></span><span></span><span></span></div>
-      <span class="terminal-title">cli_scan.py --path test_configs/vulnerable --fail-on CRITICAL</span>
-    </div>
-    <div class="terminal-body static-body">
-<span class="line dim">$ python cli_scan.py --path test_configs/vulnerable --fail-on CRITICAL</span>
-<span class="line dim">Running 5-agent pipeline...</span>
-<span class="line"></span>
-<span class="line accent-red">[CRITICAL] Public S3 bucket with no access restriction</span>
-<span class="line accent-red">[CRITICAL] SSH port 22 open to 0.0.0.0/0</span>
-<span class="line accent-red">[CRITICAL] Wildcard IAM policy (Action: "*", Resource: "*")</span>
-<span class="line accent-orange">[HIGH]     Unencrypted RDS instance, publicly accessible</span>
-<span class="line accent-orange">[HIGH]     Privileged K8s container — hostNetwork + hostPID enabled</span>
-<span class="line accent-orange">[HIGH]     Hardcoded secrets in plaintext env vars</span>
-<span class="line dim">...50+ raw Checkov findings triaged to 6 actionable items</span>
-<span class="line"></span>
-<span class="line accent-red">Exit code: 1 — CRITICAL findings present, merge blocked</span>
-</div>
-  </div>
-  <p class="caption">↑ Same pipeline, callable as a CI/CD security gate. This is the exact pattern wired into a GitHub Actions step to block a merge on CRITICAL findings.</p>
-
-  <div class="deep-dive">
-    <h3 class="deep-dive-title">Why this, not an existing tool</h3>
-    <p class="deep-dive-text">
-      Checkov, tfsec, and kube-score alone are deterministic and fast — but can't reason about
-      <em>combinations</em> of settings that only add up to a real risk in context. An LLM alone (e.g.
-      pasting a Terraform file into ChatGPT) can reason about combinations, but hallucinates benchmark
-      details and can't be audited. This project refuses to pick one: Checkov stays for what determinism
-      does best, the LLM layer is reserved for judgment calls static rules can't make, and every LLM claim
-      is grounded back to a cited knowledge-base entry instead of trusted blindly.
-    </p>
-
-    <h3 class="deep-dive-title" style="margin-top:22px;">Scaling to multiple Terraform modules &amp; multiple K8s clusters</h3>
-    <p class="deep-dive-text">
-      As built, the pipeline proves the architecture on a single-module, single-cluster scan — the right
-      scope for a portfolio project without overengineering. The path to production multi-module,
-      multi-cluster scale is concrete, not theoretical:
-    </p>
-    <ul class="deep-dive-list">
-      <li><b>Per-environment knowledge partitioning</b> — scope the RAG knowledge base per cluster/environment
-        instead of one global store, so dev/staging/prod each retrieve against the right baseline.</li>
-      <li><b>Cross-module dependency resolution</b> — resolve <code>terraform_remote_state</code> / module
-        source references across the whole repo graph before scanning, since the real privilege-escalation
-        path often lives <em>between</em> modules, not inside one.</li>
-      <li><b>Fan-out instead of one-shot</b> — use LangGraph's parallel <code>Send</code> API to run
-        parser/scanner agents per-cluster concurrently, with the report agent as a single fan-in node
-        aggregating across all of them.</li>
-      <li><b>Human-in-the-loop before any write</b> — gate remediation writes behind a LangGraph
-        interrupt/resume step once a "fix" means touching infra serving real traffic across clusters,
-        not a sandboxed test config.</li>
-    </ul>
-  </div>
-
-  <div class="cta-row">
-    <a href="https://github.com/Phani-Bhardwaj/devsecops-ai-agent" target="_blank" rel="noopener" class="btn btn-primary">View source on GitHub →</a>
-  </div>
-</section>
 
 <!-- ============ PERSONAL PROJECTS ============ -->
 <section class="section" id="personal-projects">
   <div class="section-head">
-    <p class="eyebrow">02 / PERSONAL PROJECTS</p>
+    <p class="eyebrow">01 / PERSONAL PROJECTS</p>
     <h2>Self-built, publicly shipped, production-shaped</h2>
     <p class="section-desc">Four independently designed and built agentic AI systems — each with a real architecture, a working codebase, and a public repo, not a tutorial clone.</p>
   </div>
@@ -239,7 +117,7 @@
 <!-- ============ PROFESSIONAL EXPERIENCE ============ -->
 <section class="section" id="professional-experience">
   <div class="section-head">
-    <p class="eyebrow">03 / PROFESSIONAL EXPERIENCE</p>
+    <p class="eyebrow">02 / PROFESSIONAL EXPERIENCE</p>
     <h2>Shipped systems, in regulated environments</h2>
   </div>
 
@@ -288,7 +166,7 @@
 <!-- ============ STACK ============ -->
 <section class="section stack-section" id="stack">
   <div class="section-head">
-    <p class="eyebrow">04 / STACK</p>
+    <p class="eyebrow">03 / STACK</p>
     <h2>Tools that show up in the repo, not just the resume</h2>
   </div>
   <div class="stack-grid">
@@ -322,7 +200,7 @@
 <!-- ============ EXPERIENCE ============ -->
 <section class="section experience-section" id="experience">
   <div class="section-head">
-    <p class="eyebrow">05 / EXPERIENCE</p>
+    <p class="eyebrow">04 / EXPERIENCE</p>
     <h2>Timeline</h2>
   </div>
   <div class="timeline">
@@ -355,7 +233,7 @@
 <!-- ============ CONTACT / FOOTER ============ -->
 <footer class="footer" id="contact">
   <div class="footer-inner">
-    <p class="eyebrow">06 / CONTACT</p>
+    <p class="eyebrow">05 / CONTACT</p>
     <h2>Let's talk.</h2>
     <div class="contact-row">
       <a href="mailto:phanibhardwaj129@gmail.com" class="contact-link">phanibhardwaj129@gmail.com</a>
