@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phani Bhardwaj Mellacheruvu — AI/ML &amp; Agentic AI Engineer</title>
-<meta name="description" content="AI/ML Engineer specializing in agentic systems, LangGraph pipelines, and DevSecOps automation.">
+<meta name="description" content="Phani Bhardwaj Mellacheruvu — AI/ML Engineer with 4+ years building production-grade agentic AI systems (LangGraph, MCP, RAG) for regulated banking and healthcare environments on Azure.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,7 +18,8 @@
     <a href="#top" class="nav-logo">phani<span class="cursor-blink">_</span></a>
     <div class="nav-links">
       <a href="#pipeline">pipeline</a>
-      <a href="#projects">projects</a>
+      <a href="#personal-projects">projects</a>
+      <a href="#professional-experience">work</a>
       <a href="#stack">stack</a>
       <a href="#experience">experience</a>
       <a href="#contact" class="nav-cta">contact</a>
@@ -33,13 +34,13 @@
   <div class="hero-content" id="hero-content">
     <p class="hero-eyebrow">AI / ML ENGINEER · AGENTIC SYSTEMS</p>
     <h1 class="hero-name">Phani Bhardwaj<br>Mellacheruvu</h1>
-    <p class="hero-sub">Designing Intelligent AI Systems that Automate Enterprise Workflows at Scale.<span class="accent-green">Grounded. Auditable. Production-shaped.</span></p>
+    <p class="hero-sub">AI/ML Engineer with 4+ years designing and shipping agentic AI systems — LangGraph pipelines, MCP tool integrations, and RAG architectures — for regulated banking and healthcare environments. <span class="accent-green">Grounded. Auditable. Production-shaped.</span></p>
     <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">$ view --projects</a>
+      <a href="#personal-projects" class="btn btn-primary">$ view --projects</a>
       <a href="mailto:phanibhardwaj129@gmail.com" class="btn btn-ghost">$ contact --me</a>
     </div>
     <div class="hero-meta">
-      <span>📍 Hyderabad / Bangalore, IN</span>
+      <span>📍 Hyderabad, IND</span>
       <span class="dot-sep">·</span>
       <span>4.2 YOE</span>
       <span class="dot-sep">·</span>
@@ -169,37 +170,116 @@
   </div>
 </section>
 
-<!-- ============ OTHER PROJECTS ============ -->
-<section class="section" id="projects">
+<!-- ============ PERSONAL PROJECTS ============ -->
+<section class="section" id="personal-projects">
   <div class="section-head">
-    <p class="eyebrow">02 / PRODUCTION EXPERIENCE</p>
-    <h2>Shipped systems, not just side projects</h2>
+    <p class="eyebrow">02 / PERSONAL PROJECTS</p>
+    <h2>Self-built, publicly shipped, production-shaped</h2>
+    <p class="section-desc">Four independently designed and built agentic AI systems — each with a real architecture, a working codebase, and a public repo, not a tutorial clone.</p>
   </div>
 
   <div class="project-grid">
     <div class="project-card">
       <div class="project-card-top">
-        <span class="project-tag">HEALTHCARE</span>
-        <span class="company-tag">COGNIZANT · 2021–2024</span>
+        <span class="project-tag">DEVSECOPS</span>
+        <span class="company-tag">PERSONAL PROJECT</span>
       </div>
-      <h3>Agentic AI healthcare platform — multi-cloud deployment</h3>
+      <h3>DevSecOps AI Agent</h3>
       <p class="project-card-desc">
-        Contributed to a production healthcare system built around agentic AI workflows, deployed across
-        a multi-cloud environment rather than a single provider — meaning the architecture had to account
-        for portability and consistency across cloud boundaries, not just one platform's native tooling.
+        Five-node LangGraph pipeline pairing Checkov static analysis with Groq/Llama 3.3 70B reasoning and
+        ChromaDB RAG grounding to catch Terraform &amp; Kubernetes misconfigurations before they reach
+        production, wired into a GitHub Actions CI gate.
+      </p>
+      <a href="https://github.com/Phani-Bhardwaj/devsecops-ai-agent" target="_blank" rel="noopener" class="contact-link">View repo →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <span class="project-tag">IAM / SSO</span>
+        <span class="company-tag">PERSONAL PROJECT</span>
+      </div>
+      <h3>IAM Sentinel</h3>
+      <p class="project-card-desc">
+        LangGraph &amp; MCP-based troubleshooting copilot for IAM, SSO, OAuth, and PIM issues — with a
+        synthetic Entra ID log generator, Isolation Forest + rule-based anomaly detection, ChromaDB RAG,
+        FastAPI backend, and a Streamlit UI, deployed via Terraform to Azure Container Apps.
+      </p>
+      <a href="https://github.com/Phani-Bhardwaj/iam-sentinel" target="_blank" rel="noopener" class="contact-link">View repo →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <span class="project-tag">HEALTHCARE AI</span>
+        <span class="company-tag">PERSONAL PROJECT</span>
+      </div>
+      <h3>MedAuth Copilot</h3>
+      <p class="project-card-desc">
+        Five-node LangGraph pipeline with an MCP tool server and AutoGen multi-agent debate for
+        medical-authorization decisions, backed by a versioned prompt registry and a golden-dataset eval
+        harness — containerized and deployed to Azure Container Apps.
+      </p>
+      <a href="https://github.com/Phani-Bhardwaj/medauth-copilot" target="_blank" rel="noopener" class="contact-link">View repo →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <span class="project-tag">DOCUMENT AI</span>
+        <span class="company-tag">PERSONAL PROJECT</span>
+      </div>
+      <h3>Invoice OCR LLM</h3>
+      <p class="project-card-desc">
+        LLM-powered pipeline that extracts structured line-item and vendor data from scanned invoices,
+        combining OCR with an LLM reasoning layer to handle inconsistent layouts and messy source scans.
+      </p>
+      <a href="https://github.com/Phani-Bhardwaj/invoice_ocr_llm" target="_blank" rel="noopener" class="contact-link">View repo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROFESSIONAL EXPERIENCE ============ -->
+<section class="section" id="professional-experience">
+  <div class="section-head">
+    <p class="eyebrow">03 / PROFESSIONAL EXPERIENCE</p>
+    <h2>Shipped systems, in regulated environments</h2>
+  </div>
+
+  <div class="project-grid">
+    <div class="project-card">
+      <div class="project-card-top">
+        <span class="project-tag">BANKING</span>
+        <span class="company-tag">SIDGS DIGISOL · 2024–PRESENT</span>
+      </div>
+      <h3>Solution Engineer — SIDGS DIGISOL PVT LTD <span style="opacity:.7;font-weight:500;">(Client: ICICI Bank)</span></h3>
+      <p class="project-card-desc">
+        Embedded on-site at ICICI Bank building Gen AI and MCP-integrated agentic systems on Azure, in a
+        regulated environment with direct regulatory audit exposure — including Azure AD RBAC/PIM/SSO/MFA
+        governance and AKS-based infrastructure.
       </p>
     </div>
 
     <div class="project-card">
       <div class="project-card-top">
         <span class="project-tag">BANKING</span>
-        <span class="company-tag">SIDGS · 2024–PRESENT</span>
+        <span class="company-tag">COGNIZANT · 2021–2024</span>
       </div>
-      <h3>Gen AI &amp; ML banking system — MCP-integrated, Azure-deployed</h3>
+      <h3>Programmer Analyst — American Express multi-cloud banking platform</h3>
       <p class="project-card-desc">
-        Working on a banking-domain system combining generative AI and ML components, integrated using
-        the Model Context Protocol (MCP) for standardized AI tool connectivity, deployed on Azure —
-        current-generation tooling applied to a regulated, high-stakes domain.
+        Contributed to a multi-cloud agentic AI platform built for American Express, with the architecture
+        accounting for portability and consistency across cloud boundaries rather than one provider's
+        native tooling.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <span class="project-tag">HEALTHCARE</span>
+        <span class="company-tag">COGNIZANT · 2021–2024</span>
+      </div>
+      <h3>Programmer Analyst — Healthcare AI assistant</h3>
+      <p class="project-card-desc">
+        Built a hospital administrative AI assistant using Microsoft Copilot Studio, with Entra ID
+        Conditional Access, MFA/RBAC testing, and HIPAA-aligned access control for a healthcare-domain
+        production system.
       </p>
     </div>
   </div>
@@ -208,7 +288,7 @@
 <!-- ============ STACK ============ -->
 <section class="section stack-section" id="stack">
   <div class="section-head">
-    <p class="eyebrow">03 / STACK</p>
+    <p class="eyebrow">04 / STACK</p>
     <h2>Tools that show up in the repo, not just the resume</h2>
   </div>
   <div class="stack-grid">
@@ -242,7 +322,7 @@
 <!-- ============ EXPERIENCE ============ -->
 <section class="section experience-section" id="experience">
   <div class="section-head">
-    <p class="eyebrow">04 / EXPERIENCE</p>
+    <p class="eyebrow">05 / EXPERIENCE</p>
     <h2>Timeline</h2>
   </div>
   <div class="timeline">
@@ -251,6 +331,7 @@
       <div class="timeline-content">
         <p class="timeline-date">2024 — Present</p>
         <h3>Solution Engineer · SIDGS DIGISOL PVT LTD</h3>
+        <p class="timeline-sub">Client: ICICI Bank</p>
       </div>
     </div>
     <div class="timeline-item">
@@ -274,7 +355,7 @@
 <!-- ============ CONTACT / FOOTER ============ -->
 <footer class="footer" id="contact">
   <div class="footer-inner">
-    <p class="eyebrow">05 / CONTACT</p>
+    <p class="eyebrow">06 / CONTACT</p>
     <h2>Let's talk.</h2>
     <div class="contact-row">
       <a href="mailto:phanibhardwaj129@gmail.com" class="contact-link">phanibhardwaj129@gmail.com</a>
